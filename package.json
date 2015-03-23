@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "WakeUp: An Ionic project",
   "dependencies": {
+    "express": "^4.10.7",
     "gulp": "^3.8.11",
     "gulp-sass": "^1.3.3",
     "gulp-concat": "^2.5.2",

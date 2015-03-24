@@ -31,16 +31,27 @@
       </ion-header-bar>
 
       <ion-content class="app-background">
-
         <div class="spacer" style="height: 40px;"></div>
-        <h1 align="center" class="pad">Your Alarms </h1>
+
+        <h1 align="center" class="pad">Your Alarms</h1>
 
         <div class="card" ng-repeat="alarm in alarms">
-          <div class="item item-text-wrap">
-            {{alarm | date:'shortTime'}}
+          <div class="item item-energized item-text-wrap">
+
+            <li class="item item-toggle">
+              {{alarm.time | date:'shortTime'}}
+              <label class="toggle toggle-assertive">
+                <input type="checkbox">
+                <div class="track">
+                  <div class="handle"></div>
+                </div>
+              </label>
+            </li>
+
           </div>
         </div>
 
+        <div class="spacer" style="height: 40px;"></div>
       </ion-content>
 
       <div class="bar bar-dark bar-footer center">

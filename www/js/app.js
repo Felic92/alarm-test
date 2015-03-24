@@ -13,31 +13,35 @@ angular.module('wakeup', ['ionic'])
   });
 })
 
-.controller('createAlarmCtrl', function($scope,$ionicPopup){
+.controller('createAlarmCtrl', function($scope, $ionicPopup){
 
+    //Give each alarm a unique id
+    var alarmId = 0;
+
+    //List to store alarm objects
     $scope.alarms = [];
 
-    $scope.createAlarm = function(alarmTime){
-      $scope.alarms.push(alarmTime);
-    };
-    
+    //Allows user to create and append new alarm objects to the existing list 
     $scope.newAlarm = function(){
 
-      $scope.data = {};
+      $scope.alarm = {id: alarmId};
 
       $ionicPopup.show({
-        template: '<input align="center" type="time" ng-model="data.alarmTime"> ',
+        template: '<input type="time" ng-model="alarm.time"> ',
         title: 'Set Time',
         scope: $scope,       
         buttons: 
-        [{text: 'Cancel'}, {text: '<b>Done</b>', type: 'button-royal',
-          onTap: function(e){  //dont allow user to close unless an alarm is created if created scroll top
-            !$scope.data.alarmTime ? e.preventDefault() : $scope.createAlarm($scope.data.alarmTime);
+        [{text: 'Cancel'}, {text: '<b>Done</b>', type: 'button-energized',
+          onTap: function(e){  //dont allow user to create unless an alarm time is set
+            !$scope.alarm.time ? e.preventDefault() : $scope.alarms.push($scope.alarm);
           }
         }]
       });
 
+      alarmId++; 
+
     };
+
 })
 
 

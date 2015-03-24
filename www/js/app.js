@@ -26,7 +26,7 @@ angular.module('wakeup', ['ionic'])
       $scope.data = {};
 
       $ionicPopup.show({
-        template: '<input type="time" ng-model="data.alarmTime"> ',
+        template: '<input align="center" type="time" ng-model="data.alarmTime"> ',
         title: 'Set Time',
         scope: $scope,       
         buttons: 

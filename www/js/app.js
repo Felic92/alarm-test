@@ -31,7 +31,7 @@ angular.module('wakeup', ['ionic'])
         title: 'Set Time',
         scope: $scope,       
         buttons: 
-        [{text: 'Cancel'}, {text: '<b>Done</b>', type: 'button-energized',
+        [{text: 'Cancel'}, {text: '<b>Done</b>', type: 'button-dark',
           onTap: function(e){  //dont allow user to create unless an alarm time is set
             !$scope.alarm.time ? e.preventDefault() : $scope.alarms.push($scope.alarm);
           }

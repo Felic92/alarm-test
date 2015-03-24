@@ -9,7 +9,18 @@ i.ion-chevron-down {
 
 /* Selected background pattern */
 .app-background {
-    background-image : url('../img/background.png') ;
+    /* background-image : url('../img/background.png') ; */
+
+    background: #fff081; /* Old browsers */
+    background: -moz-linear-gradient(top,  #fff081 0%, #fffef3 75%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff081), color-stop(75%,#fffef3)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #fff081 0%,#fffef3 75%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #fff081 0%,#fffef3 75%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #fff081 0%,#fffef3 75%); /* IE10+ */
+    background: linear-gradient(to bottom,  #fff081 0%,#fffef3 75%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff081', endColorstr='#fffef3',GradientType=0 ); /* IE6-9 */
+
+
 }
 
 /* Used in footer for new alarm button

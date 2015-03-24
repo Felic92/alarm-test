@@ -1,5 +1,10 @@
-.pad {
-	padding: 25px;
+.button-right {
+    float: right;
+}
+
+i.ion-chevron-down {
+
+    padding-right: 20px;
 }
 
 /* Selected background pattern */

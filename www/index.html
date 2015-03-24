@@ -33,12 +33,9 @@
       <ion-content class="app-background">
         <div class="spacer" style="height: 40px;"></div>
 
-        <h1 align="center" class="pad">Your Alarms</h1>
+        <div class="list card" ng-repeat="alarm in alarms">
 
-        <div class="card" ng-repeat="alarm in alarms">
-          <div class="item item-energized item-text-wrap">
-
-            <li class="item item-toggle">
+            <div class="item item-dark item-toggle">
               {{alarm.time | date:'shortTime'}}
               <label class="toggle toggle-assertive">
                 <input type="checkbox">
@@ -46,9 +43,25 @@
                   <div class="handle"></div>
                 </div>
               </label>
-            </li>
+            </div>
 
-          </div>
+            <div class="item"> <!-- Should be hidden when more button isn't selected -->
+              <label class="item item-input">
+                <input type="text" ng-model="alarm.label" placeholder="Label">
+              </label>
+            </div>
+
+            <div class="item">
+              <button class="button button-clear button-dark">
+                <i class="icon ion-chevron-down"></i>
+                {{alarm.label}}
+              </button>
+              
+              <button class="button button-clear button-dark button-right">
+                <i class="icon ion-trash-b"></i>
+              </button>
+            </div>
+
         </div>
 
         <div class="spacer" style="height: 40px;"></div>

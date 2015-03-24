@@ -24,14 +24,14 @@ angular.module('wakeup', ['ionic'])
     //Allows user to create and append new alarm objects to the existing list 
     $scope.newAlarm = function(){
 
-      $scope.alarm = {id: alarmId};
+      $scope.alarm = {id: alarmId, label: 'Label'};
 
       $ionicPopup.show({
         template: '<input type="time" ng-model="alarm.time"> ',
         title: 'Set Time',
         scope: $scope,       
         buttons: 
-        [{text: 'Cancel'}, {text: '<b>Done</b>', type: 'button-dark',
+        [{text: 'Cancel'}, {text: '<b>Done</b>', type: 'button-positive',
           onTap: function(e){  //dont allow user to create unless an alarm time is set
             !$scope.alarm.time ? e.preventDefault() : $scope.alarms.push($scope.alarm);
           }

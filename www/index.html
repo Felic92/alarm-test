@@ -37,7 +37,7 @@
 
             <div class="item item-dark item-toggle">
               {{alarm.time | date:'shortTime'}}
-              <label class="toggle toggle-assertive">
+              <label class="toggle toggle-positive">
                 <input type="checkbox">
                 <div class="track">
                   <div class="handle"></div>
@@ -51,6 +51,42 @@
               </label>
             </div>
 
+
+            <div class="item item-stable item-checkbox">
+              <label class="checkbox">
+                <input type="checkbox">
+              </label>
+              Repeat
+            </div>
+
+            <div class="button-bar">
+              <button class="button">SUN</button>
+              <button class="button">MON</button>
+              <button class="button">TUE</button>
+            </div>
+
+            <div class="button-bar">
+
+              <button class="button">WED</button>
+              <button class="button">THU</button>
+              <button class="button">FRI</button>
+              <button class="button">SAT</button>
+            </div>
+
+            <div class="item item-stable">
+              <button class="button button-clear button-dark">
+                <i class="icon ion-music-note"></i>
+                None
+              </button>
+              
+              <div class="item item-stable item-checkbox button-right">
+                <label class="checkbox">
+                  <input type="checkbox">
+                </label>
+                Vibrate
+              </div>
+            </div>
+
             <div class="item item-stable">
               <button class="button button-clear button-dark">
                 <i class="icon ion-chevron-down"></i>
@@ -59,6 +95,12 @@
               
               <button class="button button-clear button-dark button-right">
                 <i class="icon ion-trash-b"></i>
+              </button>
+            </div>
+
+            <div class="item item-stable">
+              <button class="button button-clear button-dark">
+                <i class="icon ion-chevron-up"></i>
               </button>
             </div>
 

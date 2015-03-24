@@ -30,7 +30,7 @@ angular.module('wakeup', ['ionic'])
         title: 'Set Time',
         scope: $scope,       
         buttons: 
-        [{text: '<b>Done</b>', type: 'button-royal',
+        [{text: 'Cancel'}, {text: '<b>Done</b>', type: 'button-royal',
           onTap: function(e){  //dont allow user to close unless an alarm is created if created scroll top
             !$scope.data.alarmTime ? e.preventDefault() : $scope.createAlarm($scope.data.alarmTime);
           }
@@ -38,10 +38,6 @@ angular.module('wakeup', ['ionic'])
       });
 
     };
-
-
-
-
 })
 
 

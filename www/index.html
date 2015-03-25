@@ -17,12 +17,20 @@
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
-
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
+      
   </head>
 
   <body ng-app="wakeup">
+
+    <!-- Modules -->
+    <script src="js/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/alarm-create-controller.js"></script>
+    <script src="js/controllers/alarm-edit-controller.js"></script>
+
+    <!-- Services -->
+    <script src="js/services/alarm.js"></script>
 
     <ion-pane ng-controller="createAlarmCtrl as createAlarm"> 
 

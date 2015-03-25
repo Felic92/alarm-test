@@ -13,8 +13,7 @@
     <script src="js/app.js"></script>
 
     <!-- Controllers -->
-    <script src="js/controllers/alarm-create-controller.js"></script>
-    <script src="js/controllers/alarm-edit-controller.js"></script>
+    <script src="js/controllers/alarm-controller.js"></script>
 
     <!-- Services -->
     <script src="js/services/alarm.js"></script>
@@ -43,63 +42,60 @@
               </label>
             </div>
 
-            <div class="item item-stable"> <!-- Should be hidden when more button isn't selected -->
-              <label class="item item-input">
-                <input type="text" ng-model="alarm.label" placeholder="Label">
-              </label>
-            </div>
+            <!-- Begin detail view-->
+            <div ng-show="alarm.showDetail">
+              <div class="item item-stable"> 
+                <label class="item item-input">
+                  <input type="text" ng-model="alarm.label" placeholder="Label">
+                </label>
+              </div>
 
-
-            <div class="item item-stable item-checkbox">
-              <label class="checkbox">
-                <input type="checkbox">
-              </label>
-              Repeat
-            </div>
-
-            <div class="button-bar">
-              <button class="button">SUN</button>
-              <button class="button">MON</button>
-              <button class="button">TUE</button>
-            </div>
-
-            <div class="button-bar">
-
-              <button class="button">WED</button>
-              <button class="button">THU</button>
-              <button class="button">FRI</button>
-              <button class="button">SAT</button>
-            </div>
-
-            <div class="item item-stable">
-              <button class="button button-clear button-dark">
-                <i class="icon ion-music-note"></i>
-                None
-              </button>
-              
-              <div class="item item-stable item-checkbox button-right">
+              <div class="item item-stable item-checkbox">
                 <label class="checkbox">
                   <input type="checkbox">
                 </label>
-                Vibrate
+                Repeat
               </div>
+
+              <div class="button-bar">
+                <button class="button">SUN</button>
+                <button class="button">MON</button>
+                <button class="button">TUE</button>
+              </div>
+
+              <div class="button-bar">
+                <button class="button">WED</button>
+                <button class="button">THU</button>
+                <button class="button">FRI</button>
+                <button class="button">SAT</button>
+              </div>
+
+              <div class="item item-stable">
+                <button class="button button-clear button-dark">
+                  <i class="icon ion-music-note"></i>
+                  None
+                </button>
+                
+                <div class="item item-stable item-checkbox button-right">
+                  <label class="checkbox">
+                    <input type="checkbox">
+                  </label>
+                  Vibrate
+                </div>
+              </div>
+
             </div>
+            <!-- End detail view-->
 
             <div class="item item-stable">
-              <button class="button button-clear button-dark">
-                <i class="icon ion-chevron-down"></i>
+              <button class="button button-clear button-dark" ng-click="alarm.showDetail = !alarm.showDetail">
+                <i class="icon ion-chevron-down" ng-show="!alarm.showDetail"></i>
+                <i class="icon ion-chevron-up" ng-show="alarm.showDetail"></i>
                 {{alarm.label}}
               </button>
               
               <button class="button button-clear button-dark button-right" ng-click="removeAlarm($index)">
                 <i class="icon ion-trash-b"></i>
-              </button>
-            </div>
-
-
-            <div class="item item-stable">
-              <button class="button button-clear button-dark">
-                <i class="icon ion-chevron-up"></i>
               </button>
             </div>
 

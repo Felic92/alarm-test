@@ -1,6 +1,9 @@
-angular.module('wakeup')
+angular.module('wakeup.services',[])
 
 .factory('Alarms', function AlarmFactory(){
+
+  var alarmId = 0; //able to take out createAlarm id param?
+
   return {
     all : function() {
       var alarms = window.localStorage['Alarms'];
@@ -12,18 +15,18 @@ angular.module('wakeup')
     save: function(alarms){
       window.localStorage['Alarms'] = angular.toJson(alarms);
     },
-    createAlarm : function(alarmTime,alarmId){
+    createAlarm : function(alarmTime){
       return {
         id : alarmId,
         label : 'Label',
         time : alarmTime
       };
     },
-    getNextAlarmId : function(){
-      return parseInt(window.localStorage['nextAlarmId']) || 0;
+    getAlarmId : function(){
+      return alarmId
     },
-    setNextAlarmId : function(id){
-      window.localStorage['nextAlarmId'] = id;
+    incrementAlarmId : function(){
+      alarmId++;
     }
   }
 })

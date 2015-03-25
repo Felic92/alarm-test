@@ -1,4 +1,4 @@
-angular.module('wakeup')
+angular.module('wakeup.controllers',[])
 
 .controller('createAlarmCtrl', function($scope, $ionicPopup, Alarms){
 
@@ -20,11 +20,9 @@ angular.module('wakeup')
             if(!$scope.data.time){ //dont allow user to create unless an alarm time is set
               e.preventDefault();
             }else{
-              var id = Alarms.getNextAlarmId();
-              var time = $scope.data.time; 
-
-              $scope.alarms.push(Alarms.createAlarm(time,id));
-              Alarms.setNextAlarmId(id++);
+              var newAlarm = Alarms.createAlarm($scope.data.time)
+              $scope.alarms.push(newAlarm);
+              Alarms.incrementAlarmId();
               Alarms.save($scope.alarms);
             }
           }

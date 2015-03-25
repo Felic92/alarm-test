@@ -2,7 +2,7 @@ angular.module('wakeup.services',[])
 
 .factory('Alarms', function AlarmFactory(){
 
-  var alarmId = 0; //able to take out createAlarm id param?
+  var alarmId = 0; 
 
   return {
     all : function() {

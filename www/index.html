@@ -22,7 +22,7 @@
 
   <body ng-app="wakeup">
 
-    <ion-pane ng-controller="createAlarmCtrl as createAlarm"> 
+    <ion-pane ng-controller="alarmController as alarmCtrl"> 
 
       <ion-header-bar class="bar-dark">
         <h1 class="title">Wake Up</h1>
@@ -32,7 +32,7 @@
         <div class="spacer" style="height: 40px;"></div>
 
         <div class="list card" ng-repeat="alarm in alarms">
-          
+
             <div class="item item-dark item-toggle">
               {{alarm.time | date:'shortTime'}}
               <label class="toggle toggle-positive">
@@ -91,10 +91,11 @@
                 {{alarm.label}}
               </button>
               
-              <button class="button button-clear button-dark button-right">
+              <button class="button button-clear button-dark button-right" ng-click="removeAlarm($index)">
                 <i class="icon ion-trash-b"></i>
               </button>
             </div>
+
 
             <div class="item item-stable">
               <button class="button button-clear button-dark">

@@ -1,6 +1,6 @@
 angular.module('wakeup.controllers',[])
 
-.controller('createAlarmCtrl', function($scope, $ionicPopup, Alarms){
+.controller('alarmController', function($scope, $ionicPopup, Alarms){
 
     //Load or create list to store alarm objects
     $scope.alarms = Alarms.all();
@@ -30,4 +30,9 @@ angular.module('wakeup.controllers',[])
       });
 
     };
+
+    $scope.removeAlarm = function(index){
+      $scope.alarms.splice(index,1);
+      Alarms.save($scope.alarms);
+    }
 })

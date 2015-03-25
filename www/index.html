@@ -52,18 +52,18 @@
 
               <div class="item item-stable item-checkbox">
                 <label class="checkbox">
-                  <input type="checkbox">
+                  <input type="checkbox" ng-model="alarm.repeat">
                 </label>
                 Repeat
               </div>
 
-              <div class="button-bar">
+              <div class="button-bar" ng-show="alarm.repeat">
                 <button class="button">SUN</button>
                 <button class="button">MON</button>
                 <button class="button">TUE</button>
               </div>
 
-              <div class="button-bar">
+              <div class="button-bar" ng-show="alarm.repeat">
                 <button class="button">WED</button>
                 <button class="button">THU</button>
                 <button class="button">FRI</button>

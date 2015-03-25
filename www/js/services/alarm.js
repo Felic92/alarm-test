@@ -20,7 +20,8 @@ angular.module('wakeup.services',[])
         id : alarmId,
         label : 'Label',
         time : alarmTime,
-        showDetail : false
+        showDetail : false,
+        repeat : false
       };
     },
     getAlarmId : function(){

@@ -21,7 +21,8 @@ angular.module('wakeup.services',[])
         label : 'Label',
         time : alarmTime,
         showDetail : false,
-        repeat : false
+        repeat : false,
+        days : [false,false,false,false,false,false,false]
       };
     },
     getAlarmId : function(){

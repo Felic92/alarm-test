@@ -35,4 +35,14 @@ angular.module('wakeup.controllers',[])
       $scope.alarms.splice(index,1);
       Alarms.save($scope.alarms);
     }
+
+    $scope.toggleDay = function(alarm,dayIndex){
+      alarm.days[dayIndex] = !alarm.days[dayIndex];
+    }
+
+    $scope.clearAlarmSchedule = function(alarm){
+      for(i=0; i < alarm.days.length; i++){
+        alarm.days[i] = false;
+      }
+    };
 })

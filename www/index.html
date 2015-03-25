@@ -52,22 +52,22 @@
 
               <div class="item item-stable item-checkbox">
                 <label class="checkbox">
-                  <input type="checkbox" ng-model="alarm.repeat">
+                  <input type="checkbox" ng-model="alarm.repeat" ng-click="clearAlarmSchedule(alarm)">
                 </label>
                 Repeat
               </div>
 
               <div class="button-bar" ng-show="alarm.repeat">
-                <button class="button">SUN</button>
-                <button class="button">MON</button>
-                <button class="button">TUE</button>
+                <button ng-class="alarm.days[0] ? 'button button-positive' : 'button'" ng-click="toggleDay(alarm,0)">SUN</button>
+                <button ng-class="alarm.days[1] ? 'button button-positive' : 'button'" ng-click="toggleDay(alarm,1)">MON</button>
+                <button ng-class="alarm.days[2] ? 'button button-positive' : 'button'" ng-click="toggleDay(alarm,2)">TUE</button>
               </div>
 
               <div class="button-bar" ng-show="alarm.repeat">
-                <button class="button">WED</button>
-                <button class="button">THU</button>
-                <button class="button">FRI</button>
-                <button class="button">SAT</button>
+                <button ng-class="alarm.days[3] ? 'button button-positive' : 'button'" ng-click="toggleDay(alarm,3)">WED</button>
+                <button ng-class="alarm.days[4] ? 'button button-positive' : 'button'" ng-click="toggleDay(alarm,4)">THU</button>
+                <button ng-class="alarm.days[5] ? 'button button-positive' : 'button'" ng-click="toggleDay(alarm,5)">FRI</button>
+                <button ng-class="alarm.days[6] ? 'button button-positive' : 'button'" ng-click="toggleDay(alarm,6)">SAT</button>
               </div>
 
               <div class="item item-stable">

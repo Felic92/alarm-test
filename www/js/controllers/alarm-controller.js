@@ -1,12 +1,19 @@
-angular.module('wakeup.controllers',[])
+angular.module('wakeup.controllers',['ngCordova'])
 
-.controller('alarmController', function($scope, $ionicPopup, Alarms){
+.controller('alarmController', function($scope, $ionicPopup,$cordovaFile,$cordovaMedia,Alarms){
 
     //Load or create list to store alarm objects
     $scope.alarms = Alarms.all();
 
     //Allows user to create and append new alarm objects to the existing list 
     $scope.newAlarm = function(){
+
+      var alarmId = Alarms.getAlarmId();
+
+      //First alarm ever create folder to store audio files locally, Could also check if directory exists
+      if(alarmId === 0){
+        $cordovaFile.createDir("WakeUp",true);
+      }
 
       $scope.data = {};
 
@@ -20,9 +27,9 @@ angular.module('wakeup.controllers',[])
             if(!$scope.data.time){ //dont allow user to create unless an alarm time is set
               e.preventDefault();
             }else{
-              var newAlarm = Alarms.createAlarm($scope.data.time)
+              var newAlarm = Alarms.createAlarm(alarmId,$scope.data.time);
               $scope.alarms.push(newAlarm);
-              Alarms.incrementAlarmId();
+              Alarms.incrementAlarmId(alarmId);
               Alarms.save($scope.alarms);
             }
           }
@@ -31,6 +38,22 @@ angular.module('wakeup.controllers',[])
 
     };
 
+    $scope.recordAlarm = function(id){
+      var alarmMedia = new Media("WakeUp/alarm"+id+".mp3");
+      alarmMedia.startRecord();
+
+      // Stop recording after 5 seconds
+      setTimeout(function() {
+        alarmMedia.stopRecord();  
+        alarmMedia.release(alarmMedia); }, 5000);
+    }
+
+    $scope.playAlarm = function(id){
+      var alarmMedia = new Media("WakeUp/alarm"+id+".mp3");
+      alarmMedia.play();
+    }
+
+    //Will have to remove associated audio file as well
     $scope.removeAlarm = function(index){
       $scope.alarms.splice(index,1);
       Alarms.save($scope.alarms);

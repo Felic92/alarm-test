@@ -1,4 +1,4 @@
-angular.module('wakeup', ['ionic','wakeup.controllers','wakeup.services'])
+angular.module('wakeup', ['ionic','wakeup.controllers','wakeup.services','ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

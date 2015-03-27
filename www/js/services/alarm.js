@@ -1,8 +1,6 @@
-angular.module('wakeup.services',[])
+angular.module('wakeup.services',['ngCordova'])
 
 .factory('Alarms', function AlarmFactory(){
-
-  var alarmId = 0; 
 
   return {
     all : function() {
@@ -15,7 +13,7 @@ angular.module('wakeup.services',[])
     save: function(alarms){
       window.localStorage['Alarms'] = angular.toJson(alarms);
     },
-    createAlarm : function(alarmTime){
+    createAlarm : function(alarmId,alarmTime){
       return {
         id : alarmId,
         label : 'Label',
@@ -24,12 +22,13 @@ angular.module('wakeup.services',[])
         repeat : false,
         days : [false,false,false,false,false,false,false]
       };
+    },    
+    getAlarmId : function(){ 
+      return parseInt(window.localStorage['alarmId']) || 0;
     },
-    getAlarmId : function(){
-      return alarmId
-    },
-    incrementAlarmId : function(){
-      alarmId++;
+    //Not crazy about infinitely increasing ids but it does the job for now
+    incrementAlarmId : function(alarmId){
+      window.localStorage['alarmId'] = alarmId+1 ;
     }
   }
 })

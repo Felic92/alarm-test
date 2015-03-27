@@ -9,6 +9,8 @@
     <link href="css/style.css" rel="stylesheet">
 
     <script src="lib/ionic/js/ionic.bundle.js"></script> <!-- ionic/angularjs js -->
+
+    <script src="js/ng-cordova.min.js"></script>
     <script src="cordova.js"></script>
     <script src="js/app.js"></script>
 
@@ -70,18 +72,15 @@
                 <button ng-class="alarm.days[6] ? 'button button-positive' : 'button'" ng-click="toggleDay(alarm,6)">SAT</button>
               </div>
 
-              <div class="item item-stable">
-                <button class="button button-clear button-dark">
+              <div class="button-bar">
+                <button class="button button-dark" ng-click="playAlarm(alarm.id)">
                   <i class="icon ion-music-note"></i>
-                  None
+                  Play Alarm
                 </button>
                 
-                <div class="item item-stable item-checkbox button-right">
-                  <label class="checkbox">
-                    <input type="checkbox">
-                  </label>
-                  Vibrate
-                </div>
+                <button class="button button-dark button-right" ng-click="recordAlarm(alarm.id)">
+                  Record Alarm
+                </button>
               </div>
 
             </div>

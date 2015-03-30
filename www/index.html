@@ -10,15 +10,18 @@
 
     <script src="lib/ionic/js/ionic.bundle.js"></script> <!-- ionic/angularjs js -->
 
-    <script src="js/ng-cordova.min.js"></script>
-    <script src="cordova.js"></script>
-    <script src="js/app.js"></script>
-
     <!-- Controllers -->
     <script src="js/controllers/alarm-controller.js"></script>
 
     <!-- Services -->
     <script src="js/services/alarm.js"></script>
+    <script src="js/services/record.js"></script>
+    
+
+    <script src="js/ng-cordova.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="cordova.js"></script>
+
   </head>
 
   <body ng-app="wakeup">
@@ -35,7 +38,7 @@
         <div class="list card" ng-repeat="alarm in alarms">
 
             <div class="item item-dark item-toggle">
-              {{alarm.time | date:'shortTime'}}
+              {{alarm.time | date:'shortTime'}} {{alarm.id}}
               <label class="toggle toggle-positive">
                 <input type="checkbox">
                 <div class="track">
@@ -73,12 +76,12 @@
               </div>
 
               <div class="button-bar">
-                <button class="button button-dark" ng-click="playAlarm(alarm.id)">
+                <button class="button button-dark" ng-click="playRecording(alarm.id)">
                   <i class="icon ion-music-note"></i>
                   Play Alarm
                 </button>
                 
-                <button class="button button-dark button-right" ng-click="recordAlarm(alarm.id)">
+                <button class="button button-dark button-right" ng-click="newRecording(alarm.id)">
                   Record Alarm
                 </button>
               </div>

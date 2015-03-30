@@ -1,6 +1,6 @@
 angular.module('wakeup.controllers',['ngCordova'])
 
-.controller('alarmController', function($scope,$ionicPopup,Alarms,Recording){
+.controller('alarmController', function($scope,$ionicPopup,$cordovaMedia,Alarms,Recording){
 
     //Load or create list to store objects
     $scope.alarms = Alarms.all();
